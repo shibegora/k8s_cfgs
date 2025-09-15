@@ -1,0 +1,21 @@
+grafana:
+  adminUser: admin
+  adminPassword: admin
+
+  grafana.ini:
+    server:
+      root_url: "http://<balancer_ip>/grafana/"
+      serve_from_sub_path: true
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    paths:
+      - path: /grafana(/|$)(.*)
+        pathType: Prefix
+
+prometheus:
+  prometheusSpec:
+    maximumStartupDurationSeconds: 300
