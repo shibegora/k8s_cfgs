@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: diploma-app
-          image: shibegora/diploma_app
+          image: shibegora/diploma_app:__TAG__
           ports:
             - containerPort: 80
 ---
